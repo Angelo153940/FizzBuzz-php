@@ -11,37 +11,57 @@ class FizzBuzz
         $this->number = $number;
     }
 
-    function isFizz() : boolean
+    public function setFizzBuzz($number): void
     {
-        return (this->number % 3 == 0);
+        $this->number = $number;
     }
 
-    function isBUzz() : boolean
+    private function itHasAThree(): bool
     {
-        return (this->number % 5 == 0);
+        return str_contains((string) $this->number, '3');
     }
 
-    function isFizzBuzz() : boolean
+    private function itHasAFive(): bool
     {
-        return ($this->number % 3 == 0 && $this->number % 5 == 0);
+        return str_contains((string) $this->number, '5');
     }
 
-    function showNumber() : void
+    private function isMultipleOfThree(): bool
     {
-        if(isFizz()){
-            echo "Fizz" . "<br>";
-            return;
+        return ($this->number % 3 == 0);
+    }
+
+    private function isMultipleOfFive(): bool
+    {
+        return ($this->number % 5 == 0);
+    }
+
+    private function isFizz(): bool
+    {
+        return $this->itHasAThree() || $this->isMultipleOfThree();
+    }
+
+    private function isBuzz(): bool
+    {
+        return $this->itHasAFive() || $this->isMultipleOfFive();
+    }
+
+    private function isFizzBuzz(): bool
+    {
+        return ($this->isFizz() && $this->isBuzz());
+    }
+
+    public function calculateFizzBuzz(): string
+    {
+        if ($this->isFizzBuzz()) {
+            return "FizzBuzz";
         }
-        if(isBuzz()){
-            echo "Buzz" . "<br>";
-            return;
+        if ($this->isFizz()) {
+            return "Fizz";
         }
-        if(isFizzBuzz()){
-            echo "FizzBuzz" . "<br>";
-            return;
+        if ($this->isBuzz()) {
+            return "Buzz";
         }
-        echo $this->number . "<br>";
+        return (string)$this->number;
     }
 }
-
-// En phpStorm correr tests en consola

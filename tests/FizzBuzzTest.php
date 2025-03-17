@@ -9,64 +9,48 @@ use PHPUnit\Framework\TestCase;
 
 final class FizzBuzzTest extends TestCase
 {
-
     /**
      * @test
      */
-    public function trueAssertion()
+    public function multipleOfThreeIsFizz()
     {
-        $example = new Example();
-
-        $integerValue = $example->integerChecker(1);
-
-        $this->assertTrue($integerValue);
+        $fizzBuzz = new fizzBuzz(3);
+        $this->assertTrue("Fizz" == $fizzBuzz->calculateFizzBuzz());
     }
 
     /**
      * @test
      */
-    public function falseAssertion()
+    public function numberHasAThreeIsFizz()
     {
-        $example = new Example();
-
-        $integerValue = $example->integerChecker('1');
-
-        $this->assertFalse($integerValue);
+        $fizzBuzz = new fizzBuzz(13);
+        $this->assertTrue("Fizz" == $fizzBuzz->calculateFizzBuzz());
     }
 
     /**
      * @test
      */
-    public function equalsAssertion()
+    public function multipleOfFiveIsBuzz()
     {
-        $example = new Example();
-
-        $integerValue = $example->integerChecker(1);
-
-        $this->assertEquals(true, $integerValue);
+        $fizzBuzz = new fizzBuzz(5);
+        $this->assertTrue("Buzz" == $fizzBuzz->calculateFizzBuzz());
     }
 
     /**
      * @test
      */
-    public function numeroDivisibleEntreTresEsFizz()
+    public function numberHasAFiveIsBuzz()
     {
-        
+        $fizzBuzz = new fizzBuzz(59);
+        $this->assertTrue("Buzz" == $fizzBuzz->calculateFizzBuzz());
     }
 
     /**
      * @test
      */
-    public function numeroDivisibleEntreCincoEsBuzz()
+    public function multipleOfThreeAndFiveIsFizzBuzz()
     {
-        
-    }
-
-    /**
-     * @test
-     */
-    public function numeroDivisibleEntreTresYCincoEsFizzBuzz()
-    {
-        
+        $fizzBuzz = new fizzBuzz(15);
+        $this->assertTrue("FizzBuzz" == $fizzBuzz->calculateFizzBuzz());
     }
 }

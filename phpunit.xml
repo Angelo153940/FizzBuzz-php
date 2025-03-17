@@ -3,7 +3,6 @@
         colors="true"
         beStrictAboutTestsThatDoNotTestAnything="true"
         beStrictAboutOutputDuringTests="true"
-        beStrictAboutTestSize="true"
         beStrictAboutChangesToGlobalState="true">
     <testsuites>
         <testsuite name="clancodeKata">
@@ -11,3 +10,6 @@
         </testsuite>
     </testsuites>
 </phpunit>
+
+
+<!--beStrictAboutTestSize="true" atirbuto no valido para PhpUnit 9.-->
